@@ -1,0 +1,74 @@
+.customer-container {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.header {
+  font-weight: bold;
+  text-align: center;
+  color: #004aad;
+  margin-bottom: 30px;
+}
+
+.card-box {
+  padding: 10px;
+  border-radius: 18px !important;
+}
+
+.section-title {
+  font-weight: 600;
+  color: #333;
+}
+
+.info-text {
+  font-size: 16px;
+  padding: 5px 0;
+}
+
+.balance {
+  color: #0a7d05;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.grid-box {
+  margin-top: 10px;
+}
+
+.action-card {
+  padding: 10px;
+  border-radius: 18px !important;
+  transition: 0.3s ease;
+}
+
+.action-card:hover {
+  transform: scale(1.02);
+}
+
+.input-field {
+  margin-bottom: 12px !important;
+}
+
+.btn-topup {
+  background-color: #008000 !important;
+  color: white !important;
+}
+
+.btn-withdraw {
+  background-color: #c70000 !important;
+  color: white !important;
+}
+
+.table-container {
+  border-radius: 12px !important;
+  overflow: hidden;
+}
+
+.table-head {
+  background: #f2f2f2 !important;
+  font-weight: bold;
+}
+
+.table-row:hover {
+  background-color: #f7faff;
+}
