@@ -6,8 +6,8 @@ import {
   Button, TextField, Table, TableBody, TableCell, TableContainer,
   TableHead, TableRow, Paper, Divider
 } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
-import "../styles/customer.css"; // <-- ADD THIS
+import Grid from "@mui/material/Grid";   // ✅ CORRECT FOR MUI v5
+import "../styles/customer.css";
 
 const CARD_NUMBER = "4123456789012345";
 const PIN = "1234";
@@ -19,12 +19,17 @@ export default function CustomerDashboard() {
   const [amountWithdraw, setAmountWithdraw] = useState<number>(0);
 
   async function loadData() {
-    const [cardRes, txnRes] = await Promise.all([
-      coreApi.get<Card>(`/cards/${CARD_NUMBER}`),
-      coreApi.get<Transaction[]>(`/transactions/${CARD_NUMBER}`)
-    ]);
-    setCard(cardRes.data);
-    setTxns(txnRes.data);
+    try {
+      const [cardRes, txnRes] = await Promise.all([
+        coreApi.get<Card>(`/cards/${CARD_NUMBER}`),
+        coreApi.get<Transaction[]>(`/transactions/${CARD_NUMBER}`)
+      ]);
+      setCard(cardRes.data);
+      setTxns(txnRes.data);
+    } catch (err) {
+      console.error("loadData error:", err);
+      alert("Failed to load data. Please check API URLs or CORS.");
+    }
   }
 
   useEffect(() => {
@@ -34,31 +39,41 @@ export default function CustomerDashboard() {
   async function handleTopup() {
     if (amountTopup <= 0) return alert("Amount must be > 0");
 
-    const res = await gatewayApi.post("/transaction", {
-      cardNumber: CARD_NUMBER,
-      pin: PIN,
-      amount: amountTopup,
-      type: "topup"
-    });
+    try {
+      const res = await gatewayApi.post("/transaction", {
+        cardNumber: CARD_NUMBER,
+        pin: PIN,
+        amount: amountTopup,
+        type: "topup"
+      });
 
-    alert(res.data.message);
-    setAmountTopup(0);
-    loadData();
+      alert(res.data.message);
+      setAmountTopup(0);
+      loadData();
+    } catch (err) {
+      console.error("Topup error:", err);
+      alert("Transaction failed.");
+    }
   }
 
   async function handleWithdraw() {
     if (amountWithdraw <= 0) return alert("Amount must be > 0");
 
-    const res = await gatewayApi.post("/transaction", {
-      cardNumber: CARD_NUMBER,
-      pin: PIN,
-      amount: amountWithdraw,
-      type: "withdraw"
-    });
+    try {
+      const res = await gatewayApi.post("/transaction", {
+        cardNumber: CARD_NUMBER,
+        pin: PIN,
+        amount: amountWithdraw,
+        type: "withdraw"
+      });
 
-    alert(res.data.message);
-    setAmountWithdraw(0);
-    loadData();
+      alert(res.data.message);
+      setAmountWithdraw(0);
+      loadData();
+    } catch (err) {
+      console.error("Withdraw error:", err);
+      alert("Transaction failed.");
+    }
   }
 
   return (
@@ -147,10 +162,8 @@ export default function CustomerDashboard() {
           </MUICard>
         </Grid>
 
-
       </Grid>
 
-      {/* TRANSACTIONS */}
       <Typography variant="h5" className="section-title" style={{ marginTop: "40px" }}>
         📜 Transaction History
       </Typography>
@@ -180,6 +193,7 @@ export default function CustomerDashboard() {
               </TableRow>
             ))}
           </TableBody>
+
         </Table>
       </TableContainer>
 
