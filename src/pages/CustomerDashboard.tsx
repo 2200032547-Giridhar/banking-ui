@@ -6,7 +6,7 @@ import {
   Button, TextField, Table, TableBody, TableCell, TableContainer,
   TableHead, TableRow, Paper, Divider
 } from "@mui/material";
-import Grid from "@mui/material/Grid2";
+import Grid from "@mui/material/Grid";
 import "../styles/customer.css";
 
 const CARD_NUMBER = "4123456789012345";
