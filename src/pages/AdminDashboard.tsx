@@ -4,7 +4,7 @@ import type { Transaction } from "../types";
 import {
   Container, Typography, Button, Paper,
   Table, TableBody, TableCell, TableContainer,
-  TableHead, TableRow, Card, CardContent, Divider
+  TableHead, TableRow, Card, CardContent
 } from "@mui/material";
 import "../styles/admin.css"; // <-- add CSS file
 
