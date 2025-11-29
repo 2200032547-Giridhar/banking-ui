@@ -4,8 +4,9 @@ import type { Transaction, Card } from "../types";
 import {
   Container, Card as MUICard, CardContent, Typography,
   Button, TextField, Table, TableBody, TableCell, TableContainer,
-  TableHead, TableRow, Paper, Grid, Divider
+  TableHead, TableRow, Paper, Divider
 } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import "../styles/customer.css"; // <-- ADD THIS
 
 const CARD_NUMBER = "4123456789012345";
