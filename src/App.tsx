@@ -1,49 +1,78 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import Login from "./pages/Login";
-import CustomerDashboard from "./pages/CustomerDashboard";
-import AdminDashboard from "./pages/AdminDashboard";
-import { useState, useEffect } from "react";
-import type { Role } from "./types";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Container, TextField, Button, Card,
+  CardContent, Typography, Avatar
+} from "@mui/material";
+import LockIcon from "@mui/icons-material/Lock";
+import "../styles/login.css"; // <-- add CSS
 
-function App() {
-  const [role, setRole] = useState<Role | null>(null);
+import type { Role } from "../types";
 
-  // Load from localStorage on refresh
-  useEffect(() => {
-    const savedRole = localStorage.getItem("role") as Role | null;
-    if (savedRole) setRole(savedRole);
-  }, []);
+interface Props {
+  onLogin: (role: Role) => void;
+}
 
-  function handleLogin(role: Role) {
-    setRole(role);
-    localStorage.setItem("role", role); // persist
+export default function Login({ onLogin }: Props) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const nav = useNavigate();
+
+  function handleLogin() {
+    if (username === "admin" && password === "admin") {
+      onLogin("ADMIN");
+      nav("/admin");
+    } else if (username === "cust1" && password === "pass") {
+      onLogin("CUSTOMER");
+      nav("/customer");
+    } else {
+      alert("Invalid credentials!");
+    }
   }
 
   return (
-    <Routes>
-      <Route path="/login" element={<Login onLogin={handleLogin} />} />
+    <Container className="login-container">
+      <Card className="login-card" elevation={6}>
+        <CardContent>
 
-      <Route
-        path="/customer"
-        element={
-          role === "CUSTOMER"
-            ? <CustomerDashboard />
-            : <Navigate to="/login" replace />
-        }
-      />
+          <Avatar className="login-avatar">
+            <LockIcon fontSize="large" />
+          </Avatar>
 
-      <Route
-        path="/admin"
-        element={
-          role === "ADMIN"
-            ? <AdminDashboard />
-            : <Navigate to="/login" replace />
-        }
-      />
+          <Typography variant="h5" align="center" className="login-title">
+            Secure Login
+          </Typography>
 
-      <Route path="*" element={<Navigate to="/login" replace />} />
-    </Routes>
+          <TextField
+            fullWidth
+            label="Username"
+            margin="normal"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="login-input"
+          />
+
+          <TextField
+            fullWidth
+            label="Password"
+            type="password"
+            margin="normal"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="login-input"
+          />
+
+          <Button
+            fullWidth
+            variant="contained"
+            className="login-btn"
+            onClick={handleLogin}
+          >
+            Login
+          </Button>
+        </CardContent>
+      </Card>
+    </Container>
   );
 }
 
-export default App;
