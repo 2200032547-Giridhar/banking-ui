@@ -1,43 +1,58 @@
+/* MAIN WRAPPER */
 .admin-container {
-  margin-top: 40px;
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 0 20px;
 }
 
+/* HEADER CARD */
 .admin-header-card {
   border-radius: 18px;
-  padding: 25px;
+  padding: 28px;
+  background: linear-gradient(135deg, #1a73e8, #00b4ff);
   color: white;
-  background: linear-gradient(135deg, #005bea, #00c6ff);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+  margin-bottom: 30px;
 }
 
+/* MAIN TITLE */
 .admin-title {
-  font-weight: 700;
   text-align: center;
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 28px;
 }
 
+/* SUBTITLE */
 .admin-subtitle {
   text-align: center;
+  font-size: 15px;
   opacity: 0.9;
 }
 
+/* REFRESH BUTTON */
 .refresh-btn {
-  margin: 20px 0 !important;
-  background-color: #005bea !important;
-  padding: 10px !important;
+  background-color: #1a73e8 !important;
   font-weight: bold !important;
+  padding: 10px 20px !important;
+  border-radius: 10px !important;
+  display: block;
+  margin: 0 auto 25px auto !important;
 }
 
+/* TABLE STYLING */
 .admin-table-container {
-  border-radius: 14px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.12);
 }
 
 .table-header-row {
-  background-color: #f5f5f5 !important;
+  background: #f1f3f6 !important;
   font-weight: bold;
 }
 
 .table-row:hover {
-  background-color: #eef4ff !important;
+  background-color: #eaf1ff !important;
   cursor: pointer;
 }
