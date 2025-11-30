@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Container, TextField, Button, Card,
-  CardContent, Typography, Avatar
+  Container,
+  TextField,
+  Button,
+  Card,
+  CardContent,
+  Typography,
+  Avatar
 } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
-import "../styles/login.css"; // <-- add CSS
 
+import "../styles/login.css";
 import type { Role } from "../types";
 
 interface Props {
@@ -31,18 +36,22 @@ export default function Login({ onLogin }: Props) {
   }
 
   return (
-    <Container className="login-container">
-      <Card className="login-card" elevation={6}>
+    <Container className="login-container" maxWidth={false}>
+      <div className="login-wrapper">
+      <Card className="login-card">
         <CardContent>
 
+          {/* Icon */}
           <Avatar className="login-avatar">
             <LockIcon fontSize="large" />
           </Avatar>
 
-          <Typography variant="h5" align="center" className="login-title">
+          {/* Title */}
+          <Typography variant="h5" className="login-title">
             Secure Login
           </Typography>
 
+          {/* Username */}
           <TextField
             fullWidth
             label="Username"
@@ -52,6 +61,7 @@ export default function Login({ onLogin }: Props) {
             className="login-input"
           />
 
+          {/* Password */}
           <TextField
             fullWidth
             label="Password"
@@ -62,6 +72,7 @@ export default function Login({ onLogin }: Props) {
             className="login-input"
           />
 
+          {/* Button */}
           <Button
             fullWidth
             variant="contained"
@@ -70,8 +81,10 @@ export default function Login({ onLogin }: Props) {
           >
             Login
           </Button>
+
         </CardContent>
       </Card>
+      </div>
     </Container>
   );
 }
