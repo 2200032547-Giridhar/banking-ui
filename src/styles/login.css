@@ -1,41 +1,48 @@
+/* FULL SCREEN CENTER */
 .login-container {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(to bottom right, #004aad, #6dc7ff);
+  background: linear-gradient(135deg, #005bea, #00c6ff);
+  padding: 20px;
 }
 
+/* CARD */
 .login-card {
   width: 380px;
-  padding: 30px;
+  padding: 35px 30px;
   border-radius: 18px;
-  background: white;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
+/* ICON */
 .login-avatar {
-  background-color: #004aad !important;
+  background-color: #005bea !important;
   width: 70px !important;
   height: 70px !important;
   margin: 0 auto 15px auto;
 }
 
+/* TITLE */
 .login-title {
   font-weight: 700;
-  text-align: center;
   margin-bottom: 20px;
+  color: #003b88;
 }
 
+/* INPUTS */
 .login-input .MuiInputBase-root {
   border-radius: 10px !important;
 }
 
+/* BUTTON */
 .login-btn {
-  margin-top: 15px !important;
-  background-color: #004aad !important;
+  background-color: #005bea !important;
   padding: 12px !important;
   border-radius: 10px !important;
   font-size: 16px !important;
   font-weight: bold !important;
+  margin-top: 15px !important;
 }
