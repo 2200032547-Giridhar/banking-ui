@@ -1,23 +1,23 @@
 .customer-container {
   margin-top: 40px;
-  margin-bottom: 60px;
 }
 
 .header {
-  font-weight: bold;
   text-align: center;
-  color: #004aad;
-  margin-bottom: 30px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #003d82;
 }
 
 .card-box {
-  padding: 10px;
-  border-radius: 18px !important;
+  border-radius: 16px !important;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .section-title {
   font-weight: 600;
-  color: #333;
+  color: #222;
 }
 
 .info-text {
@@ -26,23 +26,20 @@
 }
 
 .balance {
-  color: #0a7d05;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
-}
-
-.grid-box {
-  margin-top: 10px;
+  color: #0a7d05;
 }
 
 .action-card {
-  padding: 10px;
-  border-radius: 18px !important;
-  transition: 0.3s ease;
+  border-radius: 16px !important;
+  padding: 18px;
+  transition: 0.25s;
+  box-shadow: 0 5px 22px rgba(0,0,0,0.12);
 }
 
 .action-card:hover {
-  transform: scale(1.02);
+  transform: translateY(-5px);
 }
 
 .input-field {
@@ -50,25 +47,26 @@
 }
 
 .btn-topup {
-  background-color: #008000 !important;
-  color: white !important;
+  background-color: #008f3b !important;
+  padding: 10px !important;
 }
 
 .btn-withdraw {
-  background-color: #c70000 !important;
-  color: white !important;
+  background-color: #d00000 !important;
+  padding: 10px !important;
 }
 
 .table-container {
-  border-radius: 12px !important;
-  overflow: hidden;
+  margin-top: 30px;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .table-head {
-  background: #f2f2f2 !important;
+  background-color: #f4f4f4 !important;
   font-weight: bold;
 }
 
 .table-row:hover {
-  background-color: #f7faff;
+  background-color: #eef4ff !important;
 }
